@@ -12,19 +12,17 @@ urlpatterns = [
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
     # path for about view
-      path('about/', views.about, name='about'),
+path('about/', views.about, name='about'),
     # path for contact us view
-      path('contact/', views.contact, name='contact'),
+path('contact/', views.contact, name='contact'),
     # path for registration
 
     # path for login
-      path('login/', views.login_request, name='login'),
+path('login/', views.login_request, name='login'),
     # path for logout
 
-    path(route='', view=views.get_dealerships, name='index'),
+path(route='', view=views.get_dealerships, name='index'),
 
     # path for dealer reviews view
-      path('dealer/<int:dealer_id>/', views.get_dealer_details, name='dealer_details')
+path('dealer/<int:dealer_id>/', views.get_dealer_details, name='dealer_details')
     # path for add a review view
-
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
