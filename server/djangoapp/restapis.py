@@ -70,7 +70,7 @@ get_dealer_reviews_from_cf(url, dealerId=dealer_id):
             # Get its content in `doc` object
             reviews_doc = reviews["doc"]
             # Create a DealerReview object with values in `doc` object
-            dealer_obj = DealerReview(dealership=dealership_doc["dealership"], name=name_doc["name"], purchase=purchase_doc["purchase"], review=review_doc["review"], purchase_date=purchase_date_doc["purchase_date"], car_make_doc["car_make"], car_model_doc["car_model"], car_year_doc ["car_year"], sentiment=sentiment_doc["sentiment"], id=id_doc["id"])
+            dealer_obj = DealerReview(dealership=dealership_doc["dealership"], name=name_doc["name"], purchase=purchase_doc["purchase"], review=review_doc["review"], purchase_date=purchase_date_doc["purchase_date"], car_make_doc["car_make"], car_model_doc["car_model"], car_year_doc ["car_year"], sentiment=sentiment_doc["sentiment"], id=id_doc["dealer_id"])
             results.append(reviews_obj)
 
     return results
