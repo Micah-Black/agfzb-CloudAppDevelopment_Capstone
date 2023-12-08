@@ -9,6 +9,12 @@ def get_request(url, **kwargs):
     print("GET from {} ".format(url))
     requests.get(url, params=params, headers={'Content-Type': 'application/json'},
                                     auth=HTTPBasicAuth('apikey', api_key))
+                                     if api_key:
+                                    # Basic authentication GET
+                                     request.get(url, params=params, auth=, ...)
+                                    else:
+                                     # no authentication GET
+                                     request.get(url, params=params)
     try:
         # Call get method of requests library with URL and parameters
         response = requests.get(url, headers={'Content-Type': 'application/json'},
@@ -57,7 +63,7 @@ def get_dealers_from_cf(url, **kwargs):
 
 
 # Create a get_dealer_reviews_from_cf method to get reviews by dealer id from a cloud function
-get_dealer_reviews_from_cf(url, dealerId=dealer_id):
+def get_dealer_reviews_from_cf(url, dealerId=dealer_id):
 # def get_dealer_by_id_from_cf(url, dealerId):
 # - Call get_request() with specified arguments
     results = []
@@ -72,14 +78,24 @@ get_dealer_reviews_from_cf(url, dealerId=dealer_id):
             # Get its content in `doc` object
             reviews_doc = reviews["doc"]
             # Create a DealerReview object with values in `doc` object
-            dealer_obj = DealerReview(dealership=dealership_doc["dealership"], name=name_doc["name"], purchase=purchase_doc["purchase"], review=review_doc["review"], purchase_date=purchase_date_doc["purchase_date"], car_make_doc["car_make"], car_model_doc["car_model"], car_year_doc ["car_year"], sentiment=sentiment_doc["sentiment"], id=id_doc["dealer_id"])
+            dealer_obj = DealerReview(dealership=dealership_doc["dealership"], name=name_doc["name"], purchase=purchase_doc["purchase"], review=review_doc["review"], purchase_date=purchase_date_doc["purchase_date"], car_make_doc["car_make"], car_model_doc["car_model"], car_year_doc ["car_year"], ...
+review_obj.sentiment = analyze_review_sentiments(review_obj.review), id=id_doc["dealer_id"])
             results.append(reviews_obj)
 
     return results
 
 
 # Create an `analyze_review_sentiments` method to call Watson NLU and analyze text
+def analyze_review_sentiments(dealerreview):
 # def analyze_review_sentiments(text):
+get_request(url, **kwargs)
+  params = dict()
+  params["text"] = kwargs["text"]
+  params["version"] = kwargs["version"]
+  params["features"] = kwargs["features"]
+  params["return_analyzed_text"] = kwargs["return_analyzed_text"]
+  response = requests.get(url, params=params, headers={'Content-Type': 'application/json'},
+                                    auth=HTTPBasicAuth('apikey', api_key))
 # - Call get_request() with specified arguments
 # - Get the returned sentiment label such as Positive or Negative
 
